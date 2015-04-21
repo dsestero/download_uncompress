@@ -3,9 +3,9 @@
   "dependencies": [],
   "license": "Creative Commons Attribution-Share Alike 4.0 International license (CC-BY-SA-4.0)",
   "name": "dsestero-download_uncompress",
-  "project_page": "",
-  "source": "ssh://git@puppet/var/lib/git/puppetmodules/download_uncompress.git",
-  "summary": "Utility to download and uncompress software distributions",
+  "project_page": "https://github.com/dsestero/download_uncompress",
+  "source": "https://github.com/dsestero/download_uncompress.git",
+  "summary": "Utility to download and uncompress software distributions in a given directory",
   "requirements": [{"name": "puppet", "version_requirement": "3.x"}],
   "operatingsystem_support": [
       {
