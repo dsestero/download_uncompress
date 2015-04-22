@@ -1,7 +1,7 @@
 {
   "author": "Dario Sestero",
   "dependencies": [],
-  "license": "Creative Commons Attribution-Share Alike 4.0 International license (CC-BY-SA-4.0)",
+  "license": "CC-BY-SA-4.0",
   "name": "dsestero-download_uncompress",
   "project_page": "https://github.com/dsestero/download_uncompress",
   "source": "https://github.com/dsestero/download_uncompress.git",
@@ -14,5 +14,5 @@
       }
   ],
   "tags": ["download", "unzip", "untar", "uncompress"],
-  "version": "1.0.0"
+  "version": "1.0.1"
 } 
