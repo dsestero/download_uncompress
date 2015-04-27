@@ -1,3 +1,10 @@
+##2015-04-27 - Release - 1.0.2
+###Summary
+Code polishing to be more compliant with puppet-lint suggestions.
+
+####Bugfixes
+Corrected dependency name.
+
 ##2015-04-22 - Release - 1.0.1
 ###Summary
 Code polishing to be more compliant with puppet-lint suggestions.
