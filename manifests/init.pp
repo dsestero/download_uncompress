@@ -73,6 +73,6 @@ define download_uncompress (
     user      => $user,
     group     => $group,
     logoutput => 'on_failure',
-    require   => Class['Common::Dependencies'],
+    require   => Class['Download_uncompress::Dependencies'],
   }
 }
