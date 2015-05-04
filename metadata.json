@@ -1,9 +1,10 @@
 {
   "author": "Dario Sestero",
   "dependencies": [],
-  "license": "CC-BY-SA-4.0",
+  "license": "Apache-2.0",
   "name": "dsestero-download_uncompress",
   "project_page": "https://github.com/dsestero/download_uncompress",
+  "issues_url": "https://github.com/dsestero/download_uncompress/issues",
   "source": "https://github.com/dsestero/download_uncompress.git",
   "summary": "Utility to download and uncompress software distributions in a given directory",
   "requirements": [{"name": "puppet", "version_requirement": "3.x"}],
@@ -14,5 +15,5 @@
       }
   ],
   "tags": ["download", "unzip", "untar", "uncompress"],
-  "version": "1.0.2"
+  "version": "1.0.3"
 } 
