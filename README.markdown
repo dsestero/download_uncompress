@@ -96,14 +96,22 @@ Another example, to put in place a JBoss library (no uncompression in this case)
 
 ##Reference
 
-###`download_uncompress::download_uncompress_6`
+###Public Defines
+
+* [`download_uncompress::download_uncompress`](#download_uncompressdownload_uncompress): Downloads and possibly uncompress a file from a given url to a specified destination folder
+
+###Private Classes
+
+* [`download_uncompress::dependencies`](#download_uncompressdependencies): Install dependencies needed for the module, specifically the package `unzip`
+
+###`download_uncompress::download_uncompress`
 Downloads and possibly uncompress a file from a given url to a specified destination folder.
 
 ####Parameters
 
 #####`download_base_url`
 Base URL from which to download.
-Defaults to <tt>distributions_base_url</tt> key defined in hiera.
+Defaults to the `distributions_base_url` key defined in hiera.
 
 #####`distribution_name`
 Name of the distribution to download.
@@ -116,16 +124,16 @@ Folder created after downloading and possibly unzipping, useful to make the reso
 
 #####`uncompress`
 Specify the type of compression used by the distribution or if no uncompression is needed.
-Possible values are <tt>zip</tt>, <tt>tar.gz</tt>. Any other value is interpreted as no uncompression needed.
-Defaults to +false+.
+Possible values are `zip`, `tar.gz`. Any other value is interpreted as no uncompression needed.
+Defaults to `false`.
 
 #####`user`
 user to be used when performing the download and the eventual uncompression.
-Defaults to +root+.
+Defaults to `root`.
 
 #####`group`
 group to be used when performing the download and the eventual uncompression.
-Defaults to +root+.
+Defaults to `root`.
 
 ##Limitations
 

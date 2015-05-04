@@ -1,6 +1,6 @@
 # Class: download_uncompress::dependencies
 #
-# Install dependencies needed for the module.
+# Installs dependencies needed for the module.
 #
 # == Actions:
 #
