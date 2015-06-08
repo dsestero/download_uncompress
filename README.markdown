@@ -114,7 +114,7 @@ Base URL from which to download.
 Defaults to the `distributions_base_url` key defined in hiera.
 
 #####`distribution_name`
-Name of the distribution to download.
+Name of the distribution to download or full URL, in which case the parameter `download_base_url` is ignored.
 
 #####`dest_folder`
 Destination folder where to unzip (or possibly only download) the distribution.

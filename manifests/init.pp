@@ -9,7 +9,8 @@
 #                       Defaults to <tt>distributions_base_url</tt> key defined
 #                       in hiera.
 #
-# $distribution_name::  Name of the distribution to download.
+# $distribution_name::  Name of the distribution to download or
+#                       full URL, in which case the parameter $download_base_url is ignored..
 #
 # $dest_folder::    Destination folder where to unzip (or possibly only
 #                   download) the distribution.
@@ -58,7 +59,12 @@ define download_uncompress (
   $download_base_url = hiera('distributions_base_url'),) {
   include download_uncompress::dependencies
 
-  $download_url = "${download_base_url}/${distribution_name}"
+  if "http://" in $distribution_name {
+    $download_url = $distribution_name
+  } else {
+    $download_url = "${download_base_url}/${distribution_name}"
+  }
+
   $dist_path_name = split($distribution_name, '/')
   $file_name = $dist_path_name[-1]
   $cmd = $uncompress ? {

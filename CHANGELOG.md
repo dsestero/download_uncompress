@@ -1,3 +1,7 @@
+##2015-06-8 - Release - 1.1.0
+###Summary
+Allow to specify full URL as `distribution_name` in which case the parameter `download_base_url` is ignored.
+
 ##2015-04-30 - Release - 1.0.3
 ###Summary
 Improved documentation, rspec tests added, license changed from CC-BY-SA-4.0 to Apache-2.0.
