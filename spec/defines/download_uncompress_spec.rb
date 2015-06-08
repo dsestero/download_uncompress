@@ -62,5 +62,19 @@ describe 'download_uncompress' do
     })}
   end
 
+  context 'with distribution_name => path/to/mysoftware and no download_base_url defined' do
+    let(:params) { {
+     :distribution_name => 'path/to/mysoftware',
+     :dest_folder       => '/opt',
+     :creates           => '/opt/destfolder'
+   } }
+
+    it do 
+      expect { 
+        should contain_exec('download_uncompress_http://mysoftwaredistributionurl-/opt')
+      }.to raise_error(Puppet::Error, /No download_base_url specified/)
+    end
+  end
+
 end
 

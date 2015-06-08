@@ -82,6 +82,18 @@ Alternatively, the base url can be given as a parameter:
   }
 ```
 
+Or, the full url can be specified in one place:
+```
+  download_uncompress { "install_jboss-4.2.3.GA":
+    distribution_name => "http://sourceforge.nt/projects/jboss/files/JBoss/JBoss-4.2.3.GA/jboss-4.2.3-jdk6.zip/download",
+    dest_folder       => "/opt",
+    creates           => "/opt/jboss-4.2.3.GA",
+    uncompress        => 'zip',
+    user              => jboss,
+    group             => jboss,
+  }
+```
+
 Another example, to put in place a JBoss library (no uncompression in this case):
 ```
   download_uncompress { "${postgresqlModulePath}/postgresql-9.1-903.jdbc4.jar":

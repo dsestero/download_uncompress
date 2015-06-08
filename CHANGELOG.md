@@ -1,3 +1,8 @@
+##2015-06-8 - Release - 1.1.1
+###Summary
+Fix the fact the hiera key `distributions_base_url` is optional when `download_base_url` is specified or `distribution_name`begins with `http://`.
+A Puppet error is raised if none of these conditions is satisfied.
+
 ##2015-06-8 - Release - 1.1.0
 ###Summary
 Allow to specify full URL as `distribution_name` in which case the parameter `download_base_url` is ignored.
