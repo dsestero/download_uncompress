@@ -59,7 +59,7 @@ define download_uncompress (
   $download_base_url = hiera('distributions_base_url'),) {
   include download_uncompress::dependencies
 
-  if "http://" in $distribution_name {
+  if 'http://' in $distribution_name {
     $download_url = $distribution_name
   } else {
     $download_url = "${download_base_url}/${distribution_name}"
