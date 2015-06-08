@@ -48,5 +48,19 @@ describe 'download_uncompress' do
     })}
   end
 
+  context 'with distribution_name => http://mysoftwaredistributionurl' do
+    let(:params) { {
+     :download_base_url => 'http://www.myswdistributions.com',
+     :distribution_name => 'http://mysoftwaredistributionurl',
+     :dest_folder       => '/opt',
+     :creates           => '/opt/destfolder'
+   } }
+
+    it { should contain_exec('download_uncompress_http://mysoftwaredistributionurl-/opt').with({
+      'creates' => '/opt/destfolder',
+      'command' => 'wget -P /opt http://mysoftwaredistributionurl'
+    })}
+  end
+
 end
 
