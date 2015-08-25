@@ -83,7 +83,7 @@ define download_uncompress (
     user      => $user,
     group     => $group,
     logoutput => 'on_failure',
-    path      => "/usr/local/bin/:/usr/bin:/bin/",
+    path      => '/usr/local/bin/:/usr/bin:/bin/',
     require   => Class['Download_uncompress::Dependencies'],
   }
 }
