@@ -1,3 +1,8 @@
+##2015-08-25 - Release - 1.2.0
+###Summary
+Introduces dependency from stdlib in order to make use of ensure_packages to ensure package unzip is installed.
+Furthermore, specifies the path where to search for the commands used (no more error in case they are not set as global defaults in the site.pp).
+
 ##2015-06-8 - Release - 1.1.1
 ###Summary
 Fix the fact the hiera key `distributions_base_url` is optional when `download_base_url` is specified or `distribution_name`begins with `http://`.

@@ -25,13 +25,17 @@ The module provides a utility define that takes care to download and uncompress 
 
 ###What download_uncompress affects
 
-The module installs the `unzip` package.
+The module installs the `unzip` package if it is not installed using stdlib `ensure_packages` type.
 
 The module performs a wget from the specified url into the `/tmp` directory and possibly unzip the downloaded file into the destination folder. The *base_url* from which to download can be provided as a parameter and defaults to the value of the key `distributions_base_url` defined in hiera.
 
 ###Setup Requirements
 
-The module has no special requirements.
+This modules requires the following other modules to be installed:
+
+* puppetlabs/stdlib
+
+    to use the `ensure_packages` resource.
 	
 ###Beginning with download_uncompress	
 
