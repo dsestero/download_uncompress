@@ -15,8 +15,5 @@
 #
 class download_uncompress::dependencies {
   $enhancers = ['unzip']
-
-  package { $enhancers:
-    ensure => installed,
-  }
+  ensure_packages($enhancers)
 }
