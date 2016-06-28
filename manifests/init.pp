@@ -74,7 +74,7 @@ define download_uncompress (
   $cmd = $uncompress ? {
     'zip'    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && unzip /tmp/${file_name} -d ${dest_folder}",
     'tar.gz' => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && tar xzf /tmp/${file_name} -C ${dest_folder}",
-    'jar'    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && jar xzf /tmp/${file_name} -C ${dest_folder}",
+    'jar'    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && jar xf /tmp/${file_name} -C ${dest_folder}",
     default  => "wget -P ${dest_folder} ${download_url}",
   }
 
