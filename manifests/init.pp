@@ -72,7 +72,7 @@ define download_uncompress (
   $dist_path_name = split($distribution_name, '/')
   $file_name = $dist_path_name[-1]
   $cmd = $uncompress ? {
-    /(zip|jar)/    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && unzip /tmp/${file_name} -d ${dest_folder}",
+    /(zip|jar)/    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && unzip -o /tmp/${file_name} -d ${dest_folder}",
     'tar.gz' => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && tar xzf /tmp/${file_name} -C ${dest_folder}",
     default  => "wget -P ${dest_folder} ${download_url}",
   }
