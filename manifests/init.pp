@@ -32,6 +32,9 @@
 #                   eventual uncompression.
 #                   Defaults to +root+.
 #
+# $wget_options::   options to pass to the wget command.
+#                   Defaults to the empty string.
+#
 # == Actions:
 #
 # Performs a wget from the specified url and possibly unzip the downloaded file
@@ -56,6 +59,7 @@ define download_uncompress (
   $uncompress        = false,
   $user              = root,
   $group             = root,
+  $wget_options      = '',
   $download_base_url = hiera('distributions_base_url', undef),) {
   include download_uncompress::dependencies
 
@@ -72,9 +76,9 @@ define download_uncompress (
   $dist_path_name = split($distribution_name, '/')
   $file_name = $dist_path_name[-1]
   $cmd = $uncompress ? {
-    /(zip|jar)/    => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && unzip -o /tmp/${file_name} -d ${dest_folder}",
-    'tar.gz' => "wget -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && tar xzf /tmp/${file_name} -C ${dest_folder}",
-    default  => "wget -P ${dest_folder} ${download_url}",
+    /(zip|jar)/    => "wget ${wget_options} -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && unzip -o /tmp/${file_name} -d ${dest_folder}",
+    'tar.gz' => "wget ${wget_options} -P /tmp/ ${download_url} -O /tmp/${file_name} && mkdir -p ${dest_folder} && tar xzf /tmp/${file_name} -C ${dest_folder}",
+    default  => "wget ${wget_options} -P ${dest_folder} ${download_url}",
   }
 
   exec { "download_uncompress_${download_url}-${dest_folder}":
