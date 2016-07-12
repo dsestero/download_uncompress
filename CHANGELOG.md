@@ -1,3 +1,9 @@
+##2016-07-12 - Release - 1.3.0
+###Summary
+Added capability to uncompress jar file by using the unzip command.
+Added -o option to unzip in order to overwrite existing files.
+Added optional parameter to allow passing specific options to the wget command.
+
 ##2015-08-25 - Release - 1.2.0
 ###Summary
 Introduces dependency from stdlib in order to make use of ensure_packages to ensure package unzip is installed.

@@ -106,8 +106,7 @@ Another example, to put in place a JBoss library (no uncompression in this case)
     creates           => "${postgresqlModulePath}/postgresql-9.1-903.jdbc4.jar",
     user              => jboss,
     group             => jboss,
-  } ->
-
+  }
 ```
 
 ##Reference
@@ -140,7 +139,7 @@ Folder created after downloading and possibly unzipping, useful to make the reso
 
 #####`uncompress`
 Specify the type of compression used by the distribution or if no uncompression is needed.
-Possible values are `zip`, `tar.gz`. Any other value is interpreted as no uncompression needed.
+Possible values are `zip`, `tar.gz`, `jar`. Any other value is interpreted as no uncompression needed.
 Defaults to `false`.
 
 #####`user`
@@ -150,6 +149,10 @@ Defaults to `root`.
 #####`group`
 group to be used when performing the download and the eventual uncompression.
 Defaults to `root`.
+
+#####`wget_options`
+options to pass to the wget command.
+Defaults to the empty string.
 
 ##Limitations
 

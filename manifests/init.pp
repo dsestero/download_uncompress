@@ -20,7 +20,7 @@
 #
 # $uncompress::     Specify the type of compression used by the distribution or
 #                   if no uncompression is needed.
-#                   Possible values are <tt>zip</tt>, <tt>tar.gz</tt>. Any other
+#                   Possible values are <tt>zip</tt>, <tt>tar.gz</tt>, <tt>jar</tt>. Any other
 #                   value is interpreted as no uncompression needed.
 #                   Defaults to +false+.
 #
