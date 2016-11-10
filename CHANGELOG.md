@@ -1,3 +1,8 @@
+##2016-07-12 - Release - 1.3.1
+###Summary
+Added Debian, RedHat and CentOS distributions as supported.
+Removed restriction on specific Ubuntu versions.
+
 ##2016-07-12 - Release - 1.3.0
 ###Summary
 Added capability to uncompress jar file by using the unzip command.
