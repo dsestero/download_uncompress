@@ -59,6 +59,7 @@ define download_uncompress (
   $uncompress        = false,
   $user              = root,
   $group             = root,
+  $install_unzip     = true,
   $wget_options      = '',
   $download_base_url = hiera('distributions_base_url', undef),) {
   include download_uncompress::dependencies
