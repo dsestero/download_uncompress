@@ -14,7 +14,7 @@
 # include download_uncompress::dependencies
 #
 class download_uncompress::dependencies ($install_unzip) {
-  if $install_unzip == 'true' {
+  if str2bool($install_unzip) {
     $enhancers = ['unzip']
     ensure_packages($enhancers)
   }

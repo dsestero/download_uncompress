@@ -1,6 +1,7 @@
-##2017-09-18 - Release - 1.3.2
+##2017-09-20 - Release - 1.3.2
 ###Summary
-Added option to choose whether to install unzip or not. 
+Added option to choose whether to install unzip or not.
+Note that the install_unzip parameter is supported both in Puppet 3 and 4/5.
 
 ##2016-07-12 - Release - 1.3.1
 ###Summary

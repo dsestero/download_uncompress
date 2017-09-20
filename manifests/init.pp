@@ -62,7 +62,8 @@ define download_uncompress (
   $install_unzip     = true,
   $wget_options      = '',
   $download_base_url = hiera('distributions_base_url', undef),) {
-  class { 'download_uncompress::dependencies': 
+
+  class { 'download_uncompress::dependencies':
     install_unzip => "${install_unzip}", 
   }
 
