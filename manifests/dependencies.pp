@@ -4,7 +4,7 @@
 #
 # == Actions:
 #
-# Install the package +unzip+.
+# Install the package +unzip+ if true.
 #
 # == Requires:
 # none
@@ -13,7 +13,9 @@
 #
 # include download_uncompress::dependencies
 #
-class download_uncompress::dependencies {
-  $enhancers = ['unzip']
-  ensure_packages($enhancers)
+class download_uncompress::dependencies ($install_unzip) {
+  if $install_unzip == 'true' {
+    $enhancers = ['unzip']
+    ensure_packages($enhancers)
+  }
 }

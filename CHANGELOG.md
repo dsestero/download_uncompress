@@ -1,3 +1,7 @@
+##2017-09-18 - Release - 1.3.2
+###Summary
+Added option to choose whether to install unzip or not. 
+
 ##2016-07-12 - Release - 1.3.1
 ###Summary
 Added Debian, RedHat and CentOS distributions as supported.

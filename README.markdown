@@ -150,6 +150,10 @@ Defaults to `root`.
 group to be used when performing the download and the eventual uncompression.
 Defaults to `root`.
 
+#####`install_unzip`
+Choose whether to install unzip or not.
+Defaults to `true`.
+
 #####`wget_options`
 options to pass to the wget command.
 Defaults to the empty string.
