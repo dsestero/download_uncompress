@@ -63,8 +63,10 @@ define download_uncompress (
   $wget_options      = '',
   $download_base_url = hiera('distributions_base_url', undef),) {
 
-  class { 'download_uncompress::dependencies':
-    install_unzip => "${install_unzip}", 
+  if !defined(Class["download_uncompress::dependencies"]){
+    class { 'download_uncompress::dependencies':
+      install_unzip => "${install_unzip}", 
+    }
   }
 
   if $download_base_url == undef and !('http://' in $distribution_name) {
