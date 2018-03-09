@@ -1,3 +1,9 @@
+##2018-03-09 - Release - 1.3.3
+###Summary
+The ensure_packages function from stdlib is invoked directly
+rather than through dependencies class in order to prevent
+class duplication when the define is used multiple times.
+
 ##2017-09-20 - Release - 1.3.2
 ###Summary
 Added option to choose whether to install unzip or not.
