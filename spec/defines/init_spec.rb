@@ -13,6 +13,8 @@ describe 'download_uncompress' do
      :uncompress        => 'zip'
    } }
 
+    it { is_expected.to compile.with_all_deps }
+
     it { should contain_exec('download_uncompress_http://www.myswdistributions.com/path/to/mysoftware.zip-/opt').with({
       'creates' => '/opt/destfolder',
       'command' => 'wget  -P /tmp/ http://www.myswdistributions.com/path/to/mysoftware.zip -O /tmp/mysoftware.zip && mkdir -p /opt && unzip -o /tmp/mysoftware.zip -d /opt'
