@@ -15,7 +15,7 @@ describe 'download_uncompress' do
 
     it { should contain_exec('download_uncompress_http://www.myswdistributions.com/path/to/mysoftware.zip-/opt').with({
       'creates' => '/opt/destfolder',
-      'command' => 'wget -P /tmp/ http://www.myswdistributions.com/path/to/mysoftware.zip -O /tmp/mysoftware.zip && mkdir -p /opt && unzip /tmp/mysoftware.zip -d /opt'
+      'command' => 'wget  -P /tmp/ http://www.myswdistributions.com/path/to/mysoftware.zip -O /tmp/mysoftware.zip && mkdir -p /opt && unzip -o /tmp/mysoftware.zip -d /opt'
     })}
   end
 
@@ -30,11 +30,11 @@ describe 'download_uncompress' do
 
     it { should contain_exec('download_uncompress_http://www.myswdistributions.com/path/to/mysoftware.tar.gz-/opt').with({
       'creates' => '/opt/destfolder',
-      'command' => 'wget -P /tmp/ http://www.myswdistributions.com/path/to/mysoftware.tar.gz -O /tmp/mysoftware.tar.gz && mkdir -p /opt && tar xzf /tmp/mysoftware.tar.gz -C /opt'
+      'command' => 'wget  -P /tmp/ http://www.myswdistributions.com/path/to/mysoftware.tar.gz -O /tmp/mysoftware.tar.gz && mkdir -p /opt && tar xzf /tmp/mysoftware.tar.gz -C /opt'
     })}
   end
 
-  context 'with uncompress => false (default)' do
+  context 'with uncompress => none (default)' do
     let(:params) { {
      :download_base_url => 'http://www.myswdistributions.com',
      :distribution_name => 'path/to/mysoftware',
@@ -44,7 +44,7 @@ describe 'download_uncompress' do
 
     it { should contain_exec('download_uncompress_http://www.myswdistributions.com/path/to/mysoftware-/opt').with({
       'creates' => '/opt/destfolder',
-      'command' => 'wget -P /opt http://www.myswdistributions.com/path/to/mysoftware'
+      'command' => 'wget  -P /opt http://www.myswdistributions.com/path/to/mysoftware'
     })}
   end
 
@@ -58,7 +58,7 @@ describe 'download_uncompress' do
 
     it { should contain_exec('download_uncompress_http://mysoftwaredistributionurl-/opt').with({
       'creates' => '/opt/destfolder',
-      'command' => 'wget -P /opt http://mysoftwaredistributionurl'
+      'command' => 'wget  -P /opt http://mysoftwaredistributionurl'
     })}
   end
 

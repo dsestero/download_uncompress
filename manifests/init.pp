@@ -1,7 +1,7 @@
 # Downloads and possibly uncompress a file from a given url to a specified
 #   destination folder.
 #
-# @param download_base_url [String] base URL from which to download.
+# @param download_base_url [Optional[String]] base URL from which to download.
 #                       Defaults to <tt>distributions_base_url</tt> key defined
 #                       in hiera or <tt>undef</tt> if such key is not found.
 #
@@ -51,7 +51,7 @@ define download_uncompress (
   String $group = root,
   Boolean $install_unzip = true,
   String $wget_options = '',
-  String $download_base_url = hiera('distributions_base_url', undef),) {
+  Optional[String] $download_base_url = hiera('distributions_base_url', undef),) {
 
   if $install_unzip {
     $enhancers = ['unzip']
