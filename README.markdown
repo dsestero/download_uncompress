@@ -43,10 +43,10 @@ To download and unzip SoftwareXY.zip from the base url specified by the key `dis
 
 ```
 download_uncompress {'dwnl_inst_swxy':
-   download_base_url  => "http://jee.invallee.it/dist",
-   distribution_name  => "SoftwareXY.zip"
+   download_base_url  => 'http://jee.invallee.it/dist',
+   distribution_name  => 'SoftwareXY.zip'
    dest_folder   => '/tmp',
-   creates       => "/tmp/SXYInstallFolder",
+   creates       => '/tmp/SXYInstallFolder',
    uncompress    => 'tar.gz',
 }
 ```
@@ -75,11 +75,11 @@ Then, a typical declaration would be:
 
 Alternatively, the base url can be given as a parameter:
 ```
-  download_uncompress { "install_jboss-4.2.3.GA":
-    download_base_url => "http://sourceforge.net/projects/jboss/files/JBoss",
+  download_uncompress { 'install_jboss-4.2.3.GA':
+    download_base_url => 'http://sourceforge.net/projects/jboss/files/JBoss',
     distribution_name => "JBoss-4.2.3.GA/jboss-4.2.3-jdk6.zip/download",
-    dest_folder       => "/opt",
-    creates           => "/opt/jboss-4.2.3.GA",
+    dest_folder       => '/opt',
+    creates           => '/opt/jboss-4.2.3.GA',
     uncompress        => 'zip',
     user              => jboss,
     group             => jboss,
@@ -88,10 +88,10 @@ Alternatively, the base url can be given as a parameter:
 
 Or, the full url can be specified in one place:
 ```
-  download_uncompress { "install_jboss-4.2.3.GA":
-    distribution_name => "http://sourceforge.nt/projects/jboss/files/JBoss/JBoss-4.2.3.GA/jboss-4.2.3-jdk6.zip/download",
-    dest_folder       => "/opt",
-    creates           => "/opt/jboss-4.2.3.GA",
+  download_uncompress { 'install_jboss-4.2.3.GA':
+    distribution_name => 'http://sourceforge.nt/projects/jboss/files/JBoss/JBoss-4.2.3.GA/jboss-4.2.3-jdk6.zip/download',
+    dest_folder       => '/opt',
+    creates           => '/opt/jboss-4.2.3.GA',
     uncompress        => 'zip',
     user              => jboss,
     group             => jboss,
@@ -157,10 +157,6 @@ Defaults to `true`.
 #####`wget_options`
 options to pass to the wget command.
 Defaults to the empty string.
-
-##Limitations
-
-At the moment the module targets only OpenJDK on Ubuntu platforms. Specifically, it is tested only on Ubuntu 10.04, 12.04, and 14.04 distributions, although probably it will work also on more recent versions.
 
 ##Development
 

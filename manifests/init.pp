@@ -1,69 +1,59 @@
-# = Define: download_uncompress
-#
 # Downloads and possibly uncompress a file from a given url to a specified
-# destination folder.
+#   destination folder.
 #
-# == Parameters:
-#
-# $download_base_url::  Base URL from which to download.
+# @param download_base_url [String] base URL from which to download.
 #                       Defaults to <tt>distributions_base_url</tt> key defined
 #                       in hiera or <tt>undef</tt> if such key is not found.
 #
-# $distribution_name::  Name of the distribution to download or
+# @param distribution_name [String] name of the distribution to download or
 #                       full URL, in which case the parameter $download_base_url is ignored.
 #
-# $dest_folder::    Destination folder where to unzip (or possibly only
+# @param dest_folder [String] destination folder where to unzip (or possibly only
 #                   download) the distribution.
 #
-# $creates::        Folder created after downloading and possibly unzipping,
+# @param creates [String] folder created after downloading and possibly unzipping,
 #                   useful to make the resource type idempotent.
 #
-# $uncompress::     Specify the type of compression used by the distribution or
-#                   if no uncompression is needed.
-#                   Possible values are <tt>zip</tt>, <tt>tar.gz</tt>, <tt>jar</tt>. Any other
-#                   value is interpreted as no uncompression needed.
-#                   Defaults to +false+.
+# @param uncompress [Enum['none', 'zip', 'tar.gz', 'jar']] compression type used by the distribution or
+#                   +none+ if no uncompression is needed.
+#                   Defaults to +none+.
 #
-# $user::           user to be used when performing the download and the
+# @param user [String] user to be used when performing the download and the
 #                   eventual uncompression.
 #                   Defaults to +root+.
 #
-# $group::          group to be used when performing the download and the
+# @param group [String] group to be used when performing the download and the
 #                   eventual uncompression.
 #                   Defaults to +root+.
 #
-# $wget_options::   options to pass to the wget command.
+# @param wget_options [String] options to pass to the wget command.
 #                   Defaults to the empty string.
 #
-# == Actions:
+# @param install_unzip [Boolean] whether to install the package unzip if missing.
+#                   Defaults to +true+.
 #
-# Performs a wget from the specified url and possibly unzip the downloaded file
-# into the destination folder.
+# @example Declaring in manifest
+#   download_uncompress {'dwnl_inst_swxy':
+#     download_base_url  => 'http://jee.invallee.it/dist',
+#     distribution_name  => 'SoftwareXY.zip',
+#     dest_folder   => '/tmp',
+#     creates       => '/tmp/SXYInstallFolder',
+#     uncompress    => 'tar.gz',
+#   }
 #
-# == Requires:
-# the key <tt>distributions_base_url</tt> has to be definied in hiera
-#
-# == Sample usage:
-#
-# download_uncompress {'dwnl_inst_swxy':
-#   download_base_url  => "http://jee.invallee.it/dist",
-#   distribution_name  => "SoftwareXY.zip"
-#   dest_folder   => '/tmp',
-#   creates       => "/tmp/SXYInstallFolder",
-#   uncompress    => 'tar.gz',
-#}
+# @author Dario Sestero
 define download_uncompress (
-  $distribution_name,
-  $dest_folder,
-  $creates,
-  $uncompress        = false,
-  $user              = root,
-  $group             = root,
-  $install_unzip     = true,
-  $wget_options      = '',
-  $download_base_url = hiera('distributions_base_url', undef),) {
+  String $distribution_name,
+  String $dest_folder,
+  String $creates,
+  Enum['none', 'zip', 'tar.gz', 'jar'] $uncompress        = 'none',
+  String $user = root,
+  String $group = root,
+  Boolean $install_unzip = true,
+  String $wget_options = '',
+  String $download_base_url = hiera('distributions_base_url', undef),) {
 
-  if str2bool($install_unzip) {
+  if $install_unzip {
     $enhancers = ['unzip']
     ensure_packages($enhancers)
   }
@@ -93,6 +83,5 @@ define download_uncompress (
     group     => $group,
     logoutput => 'on_failure',
     path      => '/usr/local/bin/:/usr/bin:/bin/',
-    require   => Class['Download_uncompress::Dependencies'],
   }
 }

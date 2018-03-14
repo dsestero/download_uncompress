@@ -1,3 +1,8 @@
+##2018-03-14 - Release - 1.4.0
+###Summary
+Introduced type validation according to Puppet4 syntax.
+Documented using puppet strings.
+
 ##2018-03-09 - Release - 1.3.3
 ###Summary
 The ensure_packages function from stdlib is invoked directly
