@@ -117,7 +117,7 @@ Another example, to put in place a JBoss library (no uncompression in this case)
 
 ###Private Classes
 
-* [`download_uncompress::dependencies`](#download_uncompressdependencies): Install dependencies needed for the module, specifically the package `unzip`
+None.
 
 ###`download_uncompress::download_uncompress`
 Downloads and possibly uncompress a file from a given url to a specified destination folder.
