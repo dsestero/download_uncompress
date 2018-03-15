@@ -1,7 +1,9 @@
-##2018-03-14 - Release - 1.4.0
+##2018-03-15 - Release - 1.4.0
 ###Summary
-Introduced type validation according to Puppet4 syntax.
+Updated to Puppet 4+ and added type validation.
+Enabled use of PDK (Puppet Development Kit)
 Documented using puppet strings.
+Other minor fixes and polishing.
 
 ##2018-03-09 - Release - 1.3.3
 ###Summary
