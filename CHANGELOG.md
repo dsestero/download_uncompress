@@ -1,3 +1,8 @@
+##2018-05-28 - Release - 1.4.2
+###Summary
+Replaced the use of hiera with lookup function to retrieve base url from hiera data.
+Updated to pdk template 1.5.0
+
 ##2018-03-15 - Release - 1.4.1
 ###Summary
 Fixed README that was still mentioning a removed private class.
