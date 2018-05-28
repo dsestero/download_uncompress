@@ -51,7 +51,7 @@ define download_uncompress (
   String $group = root,
   Boolean $install_unzip = true,
   String $wget_options = '',
-  Optional[String] $download_base_url = hiera('distributions_base_url', undef),) {
+  Optional[String] $download_base_url = lookup('distributions_base_url', String, 'first', undef),) {
 
   if $install_unzip {
     $enhancers = ['unzip']

@@ -53,7 +53,7 @@ download_uncompress {'dwnl_inst_swxy':
 
 ##Usage
 
-It is convenient to specify via hiera the default bae url to be used to download software distributions; typically it would be some kind of internal repository where software binary packages are made available. An example hiera (JSON) declaration would be as follows:
+It is convenient to specify via hiera the default base url to be used to download software distributions; typically it would be some kind of internal repository where software binary packages are made available. An example hiera (JSON) declaration would be as follows:
 
 ```
 {
