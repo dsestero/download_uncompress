@@ -108,56 +108,6 @@ Another example, to put in place a JBoss library (no uncompression in this case)
     group             => jboss,
   }
 ```
-
-##Reference
-
-###Public Defines
-
-* [`download_uncompress::download_uncompress`](#download_uncompressdownload_uncompress): Downloads and possibly uncompress a file from a given url to a specified destination folder
-
-###Private Classes
-
-None.
-
-###`download_uncompress::download_uncompress`
-Downloads and possibly uncompress a file from a given url to a specified destination folder.
-
-####Parameters
-
-#####`download_base_url`
-Base URL from which to download.
-Defaults to the `distributions_base_url` key defined in hiera.
-
-#####`distribution_name`
-Name of the distribution to download or full URL, in which case the parameter `download_base_url` is ignored.
-
-#####`dest_folder`
-Destination folder where to unzip (or possibly only download) the distribution.
-
-#####`creates`
-Folder created after downloading and possibly unzipping, useful to make the resource type idempotent.
-
-#####`uncompress`
-Specify the type of compression used by the distribution or if no uncompression is needed.
-Possible values are `zip`, `tar.gz`, `jar`. Any other value is interpreted as no uncompression needed.
-Defaults to `false`.
-
-#####`user`
-user to be used when performing the download and the eventual uncompression.
-Defaults to `root`.
-
-#####`group`
-group to be used when performing the download and the eventual uncompression.
-Defaults to `root`.
-
-#####`install_unzip`
-Choose whether to install unzip or not.
-Defaults to `true`.
-
-#####`wget_options`
-options to pass to the wget command.
-Defaults to the empty string.
-
 ##Development
 
 If you need some feature please send me a (pull) request or send me an email at: dsestero 'at' gmail 'dot' com.
