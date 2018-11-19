@@ -1,6 +1,6 @@
 {
   "name": "dsestero-download_uncompress",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "author": "Dario Sestero",
   "summary": "Utility to download and uncompress software distributions in a given directory",
   "license": "Apache-2.0",

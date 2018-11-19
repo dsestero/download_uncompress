@@ -1,3 +1,8 @@
+##2018-05-28 - Release - 1.5.0
+###Summary
+Added the parameter refreshonly to the exec performing the actual job
+in order to allow to do it only when download_uncompress receives an event.
+
 ##2018-05-28 - Release - 1.4.2
 ###Summary
 Replaced the use of hiera with lookup function to retrieve base url from hiera data.

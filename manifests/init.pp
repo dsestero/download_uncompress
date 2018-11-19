@@ -32,6 +32,10 @@
 # @param install_unzip [Boolean] whether to install the package unzip if missing.
 #                   Defaults to +true+.
 #
+# @param refreshonly Boolean if set to true, the exec performing download and uncompress tasks will only run when
+#                   download_uncompress receives an event.
+#                   Defaults to +false+.
+#
 # @example Declaring in manifest
 #   download_uncompress {'dwnl_inst_swxy':
 #     download_base_url  => 'http://jee.invallee.it/dist',
@@ -51,6 +55,7 @@ define download_uncompress (
   String $group = root,
   Boolean $install_unzip = true,
   String $wget_options = '',
+  Boolean $refreshonly = false,
   Optional[String] $download_base_url = lookup('distributions_base_url', String, 'first', undef),) {
 
   if $install_unzip {
@@ -77,11 +82,12 @@ define download_uncompress (
   }
 
   exec { "download_uncompress_${download_url}-${dest_folder}":
-    command   => $cmd,
-    creates   => $creates,
-    user      => $user,
-    group     => $group,
-    logoutput => 'on_failure',
-    path      => '/usr/local/bin/:/usr/bin:/bin/',
+    command     => $cmd,
+    creates     => $creates,
+    user        => $user,
+    group       => $group,
+    logoutput   => 'on_failure',
+    path        => '/usr/local/bin/:/usr/bin:/bin/',
+    refreshonly => $refreshonly,
   }
 }
