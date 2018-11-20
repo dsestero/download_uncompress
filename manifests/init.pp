@@ -11,8 +11,9 @@
 # @param dest_folder [String] destination folder where to unzip (or possibly only
 #                   download) the distribution.
 #
-# @param creates [String] folder created after downloading and possibly unzipping,
+# @param creates [Optional[String]] folder created after downloading and possibly unzipping,
 #                   useful to make the resource type idempotent.
+#                   Defaults to undef in which case the parameter +refreshonly+ better would be true.
 #
 # @param uncompress [Enum['none', 'zip', 'tar.gz', 'jar']] compression type used by the distribution or
 #                   +none+ if no uncompression is needed.
@@ -49,7 +50,7 @@
 define download_uncompress (
   String $distribution_name,
   String $dest_folder,
-  String $creates,
+  Optional[String] $creates = undef,
   Enum['none', 'zip', 'tar.gz', 'jar'] $uncompress        = 'none',
   String $user = root,
   String $group = root,
@@ -81,13 +82,24 @@ define download_uncompress (
     default  => "wget ${wget_options} -P ${dest_folder} ${download_url}",
   }
 
-  exec { "download_uncompress_${download_url}-${dest_folder}":
-    command     => $cmd,
-    creates     => $creates,
-    user        => $user,
-    group       => $group,
-    logoutput   => 'on_failure',
-    path        => '/usr/local/bin/:/usr/bin:/bin/',
-    refreshonly => $refreshonly,
+  if $creates != undef {
+    exec { "download_uncompress_${download_url}-${dest_folder}":
+      command     => $cmd,
+      creates     => $creates,
+      user        => $user,
+      group       => $group,
+      logoutput   => 'on_failure',
+      path        => '/usr/local/bin/:/usr/bin:/bin/',
+      refreshonly => $refreshonly,
+    }
+  } else {
+    exec { "download_uncompress_${download_url}-${dest_folder}":
+      command     => $cmd,
+      user        => $user,
+      group       => $group,
+      logoutput   => 'on_failure',
+      path        => '/usr/local/bin/:/usr/bin:/bin/',
+      refreshonly => $refreshonly,
+    }
   }
 }

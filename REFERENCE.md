@@ -58,10 +58,13 @@ download) the distribution.
 
 ##### `creates`
 
-Data type: `String`
+Data type: `Optional[String]`
 
 folder created after downloading and possibly unzipping,
 useful to make the resource type idempotent.
+Defaults to undef in which case the parameter +refreshonly+ better would be true.
+
+Default value: `undef`
 
 ##### `uncompress`
 
