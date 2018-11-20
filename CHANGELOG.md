@@ -1,4 +1,7 @@
-##2018-05-28 - Release - 1.5.0
+##2018-11-20 - Release - 1.5.1
+###Summary
+Fixed regression: syntax error introduced in 1.5.0
+##2018-11-19 - Release - 1.5.0
 ###Summary
 Added the parameter refreshonly to the exec performing the actual job
 in order to allow to do it only when download_uncompress receives an event.
